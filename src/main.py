@@ -11,6 +11,15 @@ definida no planejamento da Fase 1.
 # data limite e status.
 tarefas = []
 
+# Opcoes aceitas no campo prioridade. A chave e a versao normalizada
+# (minuscula e sem acento) e o valor e como a prioridade sera exibida.
+PRIORIDADES_VALIDAS = {
+    "alta": "Alta",
+    "media": "Média",
+    "média": "Média",
+    "baixa": "Baixa",
+}
+
 
 def exibir_menu():
     """Mostra o menu principal na tela."""
@@ -23,6 +32,41 @@ def exibir_menu():
     print("=" * 40)
 
 
+def ler_titulo():
+    """
+    Pede o titulo da tarefa.
+
+    REGRA DE NEGOCIO: o titulo e obrigatorio. Entradas vazias ou
+    formadas apenas por espacos sao rejeitadas e o programa pede
+    a digitacao novamente, quantas vezes for necessario.
+    """
+    while True:
+        titulo = input("Titulo da tarefa: ").strip()
+
+        if titulo == "":
+            print("ERRO: o titulo e obrigatorio e nao pode ficar em branco.")
+            continue
+
+        return titulo
+
+
+def ler_prioridade():
+    """
+    Pede a prioridade da tarefa.
+
+    REGRA DE NEGOCIO: a prioridade aceita exclusivamente Alta, Media
+    ou Baixa. Qualquer outro valor gera mensagem de erro e o prompt
+    e repetido.
+    """
+    while True:
+        entrada = input("Prioridade (Alta / Media / Baixa): ").strip()
+        chave = entrada.lower()
+
+        if chave in PRIORIDADES_VALIDAS:
+            return PRIORIDADES_VALIDAS[chave]
+
+        print("ERRO: prioridade invalida. Use apenas Alta, Media ou Baixa.")
+
 
 def cadastrar_tarefa():
     """
@@ -32,9 +76,9 @@ def cadastrar_tarefa():
     """
     print("\n--- CADASTRO DE NOVA TAREFA ---")
 
-    titulo = input("Titulo da tarefa: ").strip()
+    titulo = ler_titulo()
     descricao = input("Descricao (opcional): ").strip()
-    prioridade = input("Prioridade (Alta / Media / Baixa): ").strip()
+    prioridade = ler_prioridade()
     data_limite = input("Data limite (DD/MM/AAAA): ").strip()
 
     # O status sempre nasce como "Pendente", sem o usuario digitar.
