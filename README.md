@@ -32,7 +32,7 @@ A aplicação centraliza o cadastro e a consulta das tarefas em um único lugar,
 
 ```bash
 # Clonar o repositório
-git clone git clone https://github.com/italonascimento01/tasktracker-projeto.git
+git clone https://github.com/italonascimento01/tasktracker-projeto.git
 cd tasktracker-projeto
 
 # Executar a aplicação
@@ -48,7 +48,7 @@ tasktracker-projeto/
 ├── README.md                     # Este arquivo
 ├── .gitignore                    # Arquivos ignorados pelo Git
 ├── docs/
-│   └── planejamento\\\_logico.pdf   # Planejamento lógico da Fase 1
+│   └── planejamento\\\\\\\_logico.pdf   # Planejamento lógico da Fase 1
 └── src/
     └── main.py                   # Código-fonte da aplicação
 ```
