@@ -1,0 +1,17 @@
+services:
+  tasktracker:
+    # Constroi a imagem a partir do Dockerfile que esta na raiz do projeto.
+    build: .
+
+    # Nome fixo do container, para facilitar a identificacao
+    # em comandos como "docker ps".
+    container_name: tasktracker-app
+
+    # Mantem o canal de entrada de dados aberto. Sem isso, o input()
+    # da aplicacao receberia fim de arquivo e o programa encerraria
+    # sozinho logo apos exibir o menu.
+    stdin_open: true
+
+    # Aloca um terminal virtual (TTY) para o container, simulando
+    # o console da maquina local.
+    tty: true
